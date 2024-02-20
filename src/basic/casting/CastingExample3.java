@@ -8,8 +8,8 @@ public class CastingExample3 {
 
         int intResult = c + i;
         char charResult = (char) (c + i);
-        System.out.println(intResult);
-        System.out.println(charResult);
+        System.out.println(intResult); // 68
+        System.out.println(charResult); // D
         
         int k = 10;
         double d = k / 4; // int를 int로 나누면 int 결과값 2만 남는다.
