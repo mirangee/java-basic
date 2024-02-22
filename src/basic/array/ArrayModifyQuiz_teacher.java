@@ -3,7 +3,7 @@ package basic.array;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ArrayModifyQuiz {
+public class ArrayModifyQuiz_teacher {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -18,30 +18,31 @@ public class ArrayModifyQuiz {
         // 6. 찾은 인덱스를 통해 새로운 이름으로 수정한다.
         // 7. 위 내용을 수정이 정확히 완료될때까지 반복한다.
 
-        boolean flag = false;
-        int i = 0;
-
-        outer: while (!flag) {
+        while (true) {
             System.out.print("수정할 이름을 입력하세요: ");
-            String name = sc.next();
-            for (i = 0; i < kakao.length; i++) {
-                if(name.equals(kakao[i])) {
-                    System.out.println("*** 탐색 성공! 해당 인덱스: " + i);
-                    System.out.println("");
-                    flag = true;
-                    break outer;
+            String targetName = sc.next();
+
+            // 인덱스 탐색
+            int index = -1;
+            for (int i = 0; i < kakao.length; i++) {
+                if(targetName.equals(kakao[i])) {
+                    index = i;
+                    break;
                 }
             }
-            if (!flag) {
-                System.out.println("탐색 실패! 그 이름은 리스트에 없어요.");
-                System.out.println("");
+
+            // 수정 여부 판단
+            if (index != -1) {
+                System.out.printf("%s의 이름을 다음으로 변경합니다.\n", targetName);
+                System.out.print(">>");
+                kakao[index] = sc.next();
+                System.out.println("변경 완료");
+                System.out.println("변경 후 정보: " + Arrays.toString(kakao));
+                break;
+            } else {
+                System.out.printf("%s(은)는 없는 이름입니다.\n", targetName);
             }
         }
-        System.out.println("=================================");
-        System.out.print("새로운 이름을 입력하세요: ");
-        String newName = sc.next();
-        kakao[i] = newName;
-        System.out.println("현재 저장된 친구들: " + Arrays.toString(kakao));
 
         sc.close();
 

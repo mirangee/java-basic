@@ -1,6 +1,5 @@
 package basic.array;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayInsert {
@@ -36,8 +35,6 @@ public class ArrayInsert {
             }
             names[idx] = name;
         }
-
-//        System.out.println(Arrays.toString(names));
 
         System.out.println("===============================");
         System.out.println("입력받은 이름: ");
