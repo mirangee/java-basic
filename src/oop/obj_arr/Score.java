@@ -19,7 +19,10 @@ public class Score {
     private int total;
     private double avg;
 
-    Score() {};
+    Score() {
+    }
+
+    ;
 
     Score(String name, int korean, int english, int math) {
         this.name = name;
@@ -40,7 +43,7 @@ public class Score {
         System.out.println("평균: " + this.avg);
     }
 
-    private void scoreTotal(int korean, int english, int math){
+    private void scoreTotal(int korean, int english, int math) {
         this.total = korean + english + math;
     }
 
