@@ -45,8 +45,26 @@ public class MainClass {
 
         System.out.println("============================================");
         // 리턴 타입에 다형성 적용(buyCar 메서드로 이동해서 코드를 볼 것)
-        Car myTesla = kim.buyCar("테슬라");
+        Car myTesla = kim.buyCar("테슬라"); // 테슬라 객체를 리턴 받음
         myTesla.run();
+        // 다형성의 한계 -> Tesla 클래스에 고유한 activeAutopilot() 메서드를 선언했음에도
+        // 이 메서드가 호출되지 않는다. 왜냐면, myTesla에는 Tesla 객체가 담겨 있지만
+        // myTesla의 변수 타입이 Car 타입이기 때문.
+        // run() 메서드는 부모가 아는 메서드지만, activeAutopilot()는 부모가 알지 못한다.
+//        myTesla.activeAutopilot(); (x)
 
+        // 해결 방법 1
+        Tesla t = (Tesla) myTesla;
+        t.activeAutopilot();
+
+        // 해결 방법 2 - 리턴 받을 때 아예 형변환 해서 받는다.
+        Tesla ttt = (Tesla) kim.buyCar("테슬라");
+        ttt.run();
+
+        System.out.println("============================================");
+        CarShop shop = new CarShop();
+        shop.carPrice(s1);
+        shop.carPrice(t4);
+        shop.carPrice(p1);
     }
 }
