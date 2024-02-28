@@ -13,6 +13,7 @@ public class MainClass {
 
         makeLine();
         
+//        String name = Utility.input("이름을 입력하세요: ");
         String name = input("이름을 입력하세요: ");
         System.out.println("name = " + name);
     }
