@@ -39,7 +39,7 @@ public class ScoreMain {
             int math = sc.nextInt();
             System.out.println("--------------------");
 
-            scores[i] = new Score(name, korean, english,math);
+            scores[i] = new Score(name, korean, english, math);
         }
 
         for(int i = 0; i < idx; i++) {

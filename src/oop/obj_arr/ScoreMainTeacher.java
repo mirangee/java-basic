@@ -2,6 +2,8 @@ package oop.obj_arr;
 
 import java.util.Scanner;
 
+import static oop.obj_arr.ScoreTeacher.isValidateScore;
+
 public class ScoreMainTeacher {
     public static void main(String[] args) {
         /*
@@ -36,29 +38,24 @@ public class ScoreMainTeacher {
                 System.out.println("입력을 종료합니다.");
                 break;
             }
-            ScoreTeacher s = new ScoreTeacher();
 
             System.out.print("# 국어: ");
             int kor = sc.nextInt();
-            if(!s.isValidateScore(kor)) {
+            if(!isValidateScore(kor)) {
                 continue;
             }
             System.out.print("# 영어: ");
             int eng = sc.nextInt();
-            if(!s.isValidateScore(eng)) {
+            if(!isValidateScore(eng)) {
                 continue;
             }
             System.out.print("# 수학: ");
             int math = sc.nextInt();
-            if(!s.isValidateScore(math)) {
+            if(!isValidateScore(math)) {
                 continue;
             }
 
-            s.setName(name);
-            s.setKor(kor);
-            s.setEng(eng);
-            s.setMath(math);
-            s.setTotalAndAvg();
+            ScoreTeacher s = new ScoreTeacher(name, kor, eng, math);
 
             scoreList[idx] = s;
             idx++;
