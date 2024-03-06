@@ -33,10 +33,7 @@ public class BufferdOutEx {
             // 바이트 데이터로 변환
 
             String str = new String(text); //StringBuilder를 String으로 변환
-            byte[] data = str.getBytes();
-            fos.write(data);
-
-            for (byte b : data) {
+            for (byte b : str.getBytes()) {
                 bos.write(b);
             }
 
