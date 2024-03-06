@@ -3,8 +3,12 @@ package util;
 import java.util.Scanner;
 
 public class Utility {
+    public static final String FILE_PATH = "C:/MyWorkspace/music";
+    static Scanner sc;
 
-    static Scanner sc = new Scanner(System.in);
+    static {
+        sc = new Scanner(System.in);
+    }
 
     // 입력창의 구분을 위해 줄을 그어주는 메서드
     public static void makeLine() {
