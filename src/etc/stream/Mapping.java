@@ -74,7 +74,7 @@ public class Mapping {
             요리 목록에서 칼로리가 500 칼로리보다 큰 음식들을 필터링한 후에
             음식의 이름과 타입만을 추출해서 출력해 주세요.
         */
-        System.out.println("=============== 500칼로리 넘는 음식 이름과 타입만 추출하기=================");
+        System.out.println("=============== 500칼로리 넘는 음식 이름과 타입만 추출하기==============");
         menuList.stream()
                 .filter(dish -> dish.getCalories() > 500)
                 .map(DishNameType::new)
