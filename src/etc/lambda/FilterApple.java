@@ -53,7 +53,7 @@ public class FilterApple {
      *              -> 그러면 어떻게 함수 이름이 통일 되면서 다른 내용을 전달할 수 있을까?
      *                      -> 오버라이딩(상속, 인터페이스)
      *
-     * @problem - 이 방식은 rpedicate를 implment한 객체를 계속 생성해야 하는데 너무 비효율적이지 않은가?
+     * @problem - 이 방식은 predicate를 implment한 객체를 계속 생성해야 하는데 너무 비효율적이지 않은가?
      *      *          - 익명 클래스를 선언해 사용해 보자! Main.java로 이동해서 살펴보자.
      */
 

@@ -57,7 +57,7 @@ public class Filtering {
         System.out.println("========= 메뉴 목록에서 처음 등장하는 생선 요리 2개 필터링 ==========");
         menuList.stream()
                 .filter(menu -> menu.getType() == Dish.Type.FISH)
-                .limit(1)
+                .limit(2)
                 .collect(Collectors.toList())
                 .forEach(dish -> System.out.println(dish));
 
