@@ -34,7 +34,7 @@
 1. `() -> 42` : 파라미터가 없으며 42를 반환한다.
 - 제공되는 함수형 인터페이스
   함수형 인터페이스 | 함수 디스크립터
-
+```
 Predicate<T> | T -> boolean
 Consumer<T> | T -> void
 Function<T, R> | T -> R
@@ -44,6 +44,7 @@ BinaryOperator<T> | (T, T) -> T
 BiPredicate<L, R> | (T, U) -> boolean
 BiConsumer<T, U> | (T, U) -> void
 BiFunction<T, U, R> | (T, U) -> R
+```
 - 메서드 참조
   - `(args) -> ClassName.staticMethod(args)` => `ClassName::staticMethod`
     - `() -> Math.random()` => `Math::random`
