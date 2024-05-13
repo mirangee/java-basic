@@ -68,13 +68,20 @@ public class Main {
 
         // 연습 5: Milan에 거주하는 거래자가 한명이라도 있는지 여부 확인?
         System.out.println("======== 연습 5: Milan에 거주하는 거래자가 한명이라도 있는지 여부 확인? =======");
-        boolean milan = transactions.stream()
+        boolean flag = transactions.stream()
                 .anyMatch(transaction -> transaction.getTrader().getCity().equals("Milan"));
-        System.out.println("milan 거주 거래자 있는가? " + milan);
+                // equalsIgnoreCase("milan") 메서드를 사용하면 대소문자 구분 없이 스펠링만 비교한다.
+        System.out.println("milan 거주 거래자 있는가? " + flag);
 
 
         // 연습 6: Cambridge에 사는 거래자의 모든 거래액의 총합 출력.
         System.out.println("======== 연습 6: Cambridge에 사는 거래자의 모든 거래액의 총합 출력 =======");
+        int cambridgeTotal = transactions.stream()
+                .filter(transaction -> transaction.getTrader().getCity().equals("Cambridge"))
+                .mapToInt(transaction -> transaction.getValue())
+                .sum(); // IntStream으로 반환 받았을 시 쓸 수 있는 sum 메서드. 직접 반복문 돌리지 않아도 알아서 합계를 반환해준다.
+        System.out.println("cambridgeTotal = " + cambridgeTotal);
+
         Integer total = transactions.stream()
                 .filter(transaction -> transaction.getTrader().getCity().equals("Cambridge"))
                 .map(Transaction::getValue)
@@ -88,12 +95,24 @@ public class Main {
                 .getValue();
         System.out.println("maxTransaction = " + maxTransaction);
 
+        // mapToInt를 사용한 방법
+        int maxAsInt = transactions.stream()
+                .mapToInt(transaction -> transaction.getValue())
+                .max().getAsInt(); // int를 바로 return해준다.
+        System.out.println("maxAsInt = " + maxAsInt);
+
 
         // 연습 8. 가장 작은 거래액을 가진 거래정보 탐색
         System.out.println("======== 연습 8. 가장 작은 거래액을 가진 거래정보 탐색 =======");
         Transaction minTransaction = transactions.stream()
                 .min(Comparator.comparing(transaction -> transaction.getValue())).get();
         System.out.println("minTransaction = " + minTransaction);
+
+        transactions.stream()
+                .min(Comparator.comparing(transaction -> transaction.getValue()))
+                .ifPresent(System.out::println);
+                // nullPointerException을 방지하기 위해 Optional 타입의 객체로 반환된다(자바 8버전 이상).
+                //ifPresent() 메서드를 사용해 출력을 바로 할 수 있다.
 
     }
 }
